@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   $document = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile(
+   $document = YamlFrontMatter::parseFile(
         resource_path('posts/work-ethics.html')
     );
 
+    ddd($document->title);
     //    return view('posts', [
 //        'posts' => Post::all()
 //    ]);
